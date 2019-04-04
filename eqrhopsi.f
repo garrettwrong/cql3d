@@ -1,12 +1,19 @@
 c
 c
+      module eqrhopsi_mod
+         use iso_c_binding
+         real(c_double), private :: btor00,bthr00,bmod00
+         save
+
+         contains
+
       subroutine eqrhopsi(generate)
+
       implicit integer (i-n), real*8 (a-h,o-z)
       include 'param.h'
       include 'comm.h'
       character*8 generate
 
-      common/tmp1/ btor00,bthr00,bmod00
       parameter(nworka=3*nconteqa+1)
       dimension workk(nworka)
 
@@ -610,3 +617,5 @@ c     not very precise, but used only for diagnostic of plasma elongation
 c
       return
       end
+
+      end module eqrhopsi_mod

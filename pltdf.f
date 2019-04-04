@@ -1,9 +1,19 @@
 c
 c
+
+      module pltdf_mod
+
+      use iso_c_binding, only : c_double
+      integer, parameter, public :: nconta=100
+      ! these are shared with other routines (outside the contains)
+      real(c_double), public :: cont(nconta),tempcntr(nconta)
+      save
+
+      contains
+
       subroutine pltdf
       implicit integer (i-n), real*8 (a-h,o-z)
-      parameter(nconta=100)
-      common/contours/cont(nconta),tempcntr(nconta)
+
 
 c..................................................................
 c     if (pltd.eq."enabled" or pltd.eq."color") then
@@ -91,3 +101,5 @@ c..................................................................
 
       return
       end
+
+      end module pltdf_mod
